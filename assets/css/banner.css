@@ -1,0 +1,69 @@
+body{
+    margin: 0;
+}
+
+#banner {
+    margin: 2em 1em;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+#banner>img {
+    width: 50%;
+    margin-bottom: 1em;
+}
+
+#banner>#search-bar {
+    position: relative;
+    width: 100%;
+}
+
+#banner>#search-bar>input {
+    width: 100%;
+    background-color: rgb(238, 237, 237);
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+}
+
+#banner>#search-bar>input::placeholder {
+    padding-left: 1.8em;
+}
+
+#banner>#search-bar>#search-icon {
+    background-color: white;
+    width: 50px;
+    height: 40px;
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#banner>#search-bar>#search-icon>img {
+    width: 35%;
+}
+
+#banner>#search-bar>#search-icon2 {
+
+    position: absolute;
+    left: 1em;
+    top: 13px;
+    border-radius: 8px;
+
+}
+
+#banner>#search-bar>#search-icon2>img {
+    width: 7%;
+}
+
+hr {
+    margin-top: -0.5em;
+    background-color: grey;
+}
