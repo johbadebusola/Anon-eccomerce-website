@@ -1,32 +1,39 @@
-import React,{useEffect,useState} from 'react'
-import Squad from './squad'
 
-const PlayerInfo = () => {
-    const [data,setData] = useState()
-    const [error,setError] = useState("")
-    const[loading,setLoading] = useState()
+import React, { useEffect, useState } from 'react'
+import PlayerData from './squad'
+function PlayerInfo() {
+const [data,SetData] = useState([])
+const [loading,setLoading] = useState("")
+const [error,setError] = useState("")
 
-const fetchData = () => {
+function getData() {
     fetch("https://6345cf7539ca915a69085e5a.mockapi.io/players")
-    .then((response) => {
-      
-        response.json()
-    })
-    .then((result) => {
-        setData(result)
-        setLoading(true)
-    
-    })
+  .then((response) => {
+    // if(response.status === 404){
+    //     setError("ERROR")
+    //     setLoading(true)
+    // }
+     return response.json()
+  })
+  .then((result) => {
+    SetData(result)
+    setLoading(true)
+  })
+  .catch(() => setError("ERROR 404"))
 }
-   useEffect(() =>{fetchData()},[])
+
+
+    useEffect(() => {
+    getData()
+
+    },[])
+
 
   return (
     <div>
-     
- <Squad data={data} loading={loading} error={error} />
-
+       <h1>{error}</h1>
+        <PlayerData data={data} loading={loading} error={error}/>
     </div>
-  
   )
 }
 

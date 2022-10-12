@@ -1,23 +1,19 @@
 import React from 'react'
 
-const Squad = ({data,loading,error}) => {
-    console.log(data)
-    // const [currentPage,setCurrentPage] = useState(1)
-    // const [postPerPage,setPostPerPage] = useState(3)
-
-    // const lastPost = currentPage * postPerPage
-    // const firstPost = lastPost - postPerPage
-    // const currentPost = data.slice(firstPost,lastPost)
-
-    // const PlayerInfo = data.map((info) => (<p>{info.name}</p>))
+ const PlayerData = ({data,loading,error}) => {
+  const datas = data.map((info) => (<div>
+    <p key={info.name}> {info.name}</p>
+  <p> {info.info}</p>
+  <img src={info.image} />
+  <p>{info.biodata} </p>
+    </div>
+  ))
   return (
     <div>
-          {
-            loading ? (<p>{error}</p>) : (<h1>Loading.......</h1>)
-        }
+       {loading ? (<h3>{datas}</h3>) : (<h5> Fetching data.....</h5>)}
+       <h1>{error}</h1>
     </div>
-
   )
 }
 
-export default Squad
+export default PlayerData
